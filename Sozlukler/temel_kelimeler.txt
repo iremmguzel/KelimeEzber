@@ -1,0 +1,61 @@
+# Temel Kelimeler
+computer	bilgisayar
+keyboard	klavye
+mobile phone	cep telefonu
+cable	kablo
+button	düğme
+assignment	ödev
+library	kütüphane
+knowledge	bilgi
+improve	geliştirmek
+achieve	başarmak
+decrease	azaltmak
+increase	artırmak
+require	gerektirmek
+provide	sağlamak
+consider	göz önünde bulundurmak
+available	mevcut, erişilebilir
+significant	önemli, kayda değer
+reliable	güvenilir
+efficient	verimli
+evidence	kanıt
+research	araştırma
+approach	yaklaşım
+benefit	fayda
+challenge	zorluk
+decision	karar
+environment	çevre, ortam
+government	hükümet
+employee	çalışan
+customer	müşteri
+behaviour	davranış
+purpose	amaç
+opportunity	fırsat
+schedule	program, takvim
+deadline	son teslim tarihi
+attempt	girişim, deneme
+avoid	kaçınmak
+claim	iddia etmek
+compare	karşılaştırmak
+describe	tanımlamak, betimlemek
+emphasize	vurgulamak
+encourage	teşvik etmek
+establish	kurmak, oluşturmak
+estimate	tahmin etmek
+examine	incelemek
+expand	genişletmek
+indicate	göstermek, işaret etmek
+maintain	sürdürmek, korumak
+obtain	elde etmek
+occur	meydana gelmek
+prevent	önlemek
+reduce	düşürmek, indirmek
+reveal	ortaya çıkarmak
+suggest	önermek
+sufficient	yeterli
+temporary	geçici
+obvious	apaçık, belli
+accurate	doğru, kesin
+frequent	sık
+rare	nadir
+ancient	antik, eski

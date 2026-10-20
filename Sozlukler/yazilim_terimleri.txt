@@ -1,0 +1,39 @@
+# Yazılım Terimleri
+algorithm	algoritma
+array	dizi
+variable	değişken
+function	fonksiyon
+loop	döngü
+condition	koşul
+inheritance	kalıtım
+encapsulation	kapsülleme
+polymorphism	çok biçimlilik
+interface	arayüz
+abstract class	soyut sınıf
+object	nesne
+instance	örnek
+constructor	yapıcı metot
+exception	istisna, hata
+debug	hata ayıklamak
+compile	derlemek
+database	veritabanı
+query	sorgu
+framework	çatı, çerçeve
+repository	depo
+version control	sürüm kontrolü
+deployment	yayına alma
+requirement	gereksinim
+test case	test senaryosu
+stack	yığın
+queue	kuyruk
+linked list	bağlı liste
+binary tree	ikili ağaç
+recursion	özyineleme
+thread	iş parçacığı
+memory leak	bellek sızıntısı
+pointer	işaretçi
+network	ağ
+server	sunucu
+client	istemci
+encryption	şifreleme
+authentication	kimlik doğrulama
