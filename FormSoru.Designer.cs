@@ -38,6 +38,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblSoru = new System.Windows.Forms.Label();
             this.lblGeriBildirim = new System.Windows.Forms.Label();
+            this.btnDevam = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -150,11 +151,30 @@
             this.lblGeriBildirim.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblGeriBildirim.Visible = false;
             //
+            // btnDevam
+            //
+            this.btnDevam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(160)))), ((int)(((byte)(0)))));
+            this.btnDevam.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(160)))), ((int)(((byte)(0)))));
+            this.btnDevam.FlatAppearance.BorderSize = 0;
+            this.btnDevam.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(140)))), ((int)(((byte)(0)))));
+            this.btnDevam.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(180)))), ((int)(((byte)(0)))));
+            this.btnDevam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDevam.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnDevam.Location = new System.Drawing.Point(534, 278);
+            this.btnDevam.Name = "btnDevam";
+            this.btnDevam.Size = new System.Drawing.Size(130, 50);
+            this.btnDevam.TabIndex = 7;
+            this.btnDevam.Text = "Devam ›";
+            this.btnDevam.UseVisualStyleBackColor = false;
+            this.btnDevam.Visible = false;
+            this.btnDevam.Click += new System.EventHandler(this.btnDevam_Click);
+            //
             // FormSoru
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(742, 615);
+            this.Controls.Add(this.btnDevam);
             this.Controls.Add(this.lblGeriBildirim);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -186,5 +206,6 @@
         private System.Windows.Forms.Label lblDurum;
         private System.Windows.Forms.Label lblSoru;
         private System.Windows.Forms.Label lblGeriBildirim;
+        private System.Windows.Forms.Button btnDevam;
     }
 }

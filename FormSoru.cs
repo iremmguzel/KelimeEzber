@@ -36,6 +36,9 @@ namespace KelimeEzber
             lblDurum.Text = $"Soru: {oturum.SoruNo}/{oturum.ToplamKelime}";
             lblPuan.Text = $"Puan: {oturum.Puan}";
             lblGeriBildirim.Visible = false;
+            lblGeriBildirim.Width = panel2.Width;
+            btnDevam.Visible = false;
+            AcceptButton = null;
 
             for (int i = 0; i < secenekButonlari.Length; i++)
             {
@@ -72,7 +75,7 @@ namespace KelimeEzber
                     e.Cancel = true;
             }
             // son soru cevaplanıp yeşil gösterilirken kapatılırsa sonuç yine gösterilsin
-            else if (oturum.Bitti && gecisZamanlayicisi.Enabled)
+            else if (oturum.Bitti && (gecisZamanlayicisi.Enabled || btnDevam.Visible))
             {
                 gecisZamanlayicisi.Stop();
                 OturumSonucunuGoster();
@@ -106,19 +109,20 @@ namespace KelimeEzber
                 if (kalanlar.Count == 1)
                 {
                     oturum.CevapVer(kalanlar[0].Text);
-                    DogruCevabiGoster(kalanlar[0], $"Doğru cevap: {kalanlar[0].Text}", CevapGosterildiRengi);
+                    // kullanıcı bilemediği kelimelerde doğru cevabı inceleyebilsin diye otomatik geçilmiyor
+                    DogruCevabiGoster(kalanlar[0], "Bu kelimeyi not al!", CevapGosterildiRengi, otomatikGec: false);
                 }
                 return;
             }
 
             if (oturum.SonKazanilanPuan > 0)
-                DogruCevabiGoster(buton, $"Doğru! +{oturum.SonKazanilanPuan} puan", PuanKazanildiRengi);
+                DogruCevabiGoster(buton, $"Doğru! +{oturum.SonKazanilanPuan} puan", PuanKazanildiRengi, otomatikGec: true);
             else
-                DogruCevabiGoster(buton, "Doğru", DogruBilindiRengi);
+                DogruCevabiGoster(buton, "Doğru", DogruBilindiRengi, otomatikGec: true);
         }
 
         // bekleme sırasında başka şık seçilemesin diye tüm butonlar kapatılıyor
-        private void DogruCevabiGoster(Button dogruButon, string mesaj, Color kutuRengi)
+        private void DogruCevabiGoster(Button dogruButon, string mesaj, Color kutuRengi, bool otomatikGec)
         {
             dogruButon.BackColor = DogruCevapRengi;
             // kutu yeni soruda EkraniGuncelle tarafından gizleniyor
@@ -131,15 +135,34 @@ namespace KelimeEzber
                 b.Enabled = false;
             ActiveControl = null;
 
-            gecisZamanlayicisi.Start();
+            if (otomatikGec)
+            {
+                gecisZamanlayicisi.Start();
+                return;
+            }
+
+            // kutu daralıp sağında Devam butonu gösteriliyor, Enter da Devam'a basmış sayılıyor
+            lblGeriBildirim.Width = btnDevam.Left - lblGeriBildirim.Left - 10;
+            btnDevam.Visible = true;
+            AcceptButton = btnDevam;
         }
 
         private void GecisSuresiDoldu(object sender, EventArgs e)
         {
             gecisZamanlayicisi.Stop();
+            SonrakiSoruyaGec();
+        }
 
+        private void btnDevam_Click(object sender, EventArgs e)
+        {
+            SonrakiSoruyaGec();
+        }
+
+        private void SonrakiSoruyaGec()
+        {
             if (oturum.Bitti)
             {
+                btnDevam.Visible = false;
                 OturumSonucunuGoster();
                 Close();
                 return;
