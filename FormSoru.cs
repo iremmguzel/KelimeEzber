@@ -49,6 +49,7 @@ namespace KelimeEzber
             if (!oturum.CevapVer(buton.Text))
             {
                 buton.BackColor = Color.Red;
+                ActiveControl = null;
                 return;
             }
 
