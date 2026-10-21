@@ -59,6 +59,13 @@ namespace KelimeEzber
             ActiveControl = null;
         }
 
+        protected override void OnActivated(EventArgs e)
+        {
+            base.OnActivated(e);
+            if (!btnDevam.Visible)
+                ActiveControl = null;
+        }
+
         // oturum bitmeden pencere kapatılırsa yanlışlıkla çıkılmasın diye onay isteniyor
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
