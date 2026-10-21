@@ -20,6 +20,7 @@ namespace KelimeEzber
 
         public int Puan { get; private set; }
         public int IlkDenemedeDogru { get; private set; }
+        public int SonKazanilanPuan { get; private set; }
         public List<string> Secenekler { get; private set; }
 
         public int ToplamKelime => kelimeler.Count;
@@ -55,6 +56,8 @@ namespace KelimeEzber
             if (Bitti)
                 return false;
 
+            SonKazanilanPuan = 0;
+
             if (cevap != AktifKelime.Turkce)
             {
                 ilkDeneme = false;
@@ -66,6 +69,7 @@ namespace KelimeEzber
             {
                 Puan += DogruCevapPuani;
                 IlkDenemedeDogru++;
+                SonKazanilanPuan = DogruCevapPuani;
             }
 
             index++;

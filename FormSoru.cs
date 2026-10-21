@@ -13,6 +13,11 @@ namespace KelimeEzber
         private static readonly Color YanlisCevapRengi = Color.FromArgb(255, 190, 190);
         private static readonly Color DogruCevapRengi = Color.FromArgb(190, 240, 190);
 
+        // geri bildirim kutusunun renkleri: puan kazanıldı, sonradan bilindi, cevap gösterildi
+        private static readonly Color PuanKazanildiRengi = Color.FromArgb(57, 255, 20);
+        private static readonly Color DogruBilindiRengi = Color.FromArgb(120, 200, 120);
+        private static readonly Color CevapGosterildiRengi = Color.FromArgb(255, 193, 7);
+
         // doğru cevap yeşil gösterildikten sonra sonraki soruya geçmeden önce beklenen süre
         private readonly Timer gecisZamanlayicisi = new Timer { Interval = 1000 };
 
@@ -30,6 +35,7 @@ namespace KelimeEzber
             lblSoru.Text = oturum.AktifKelime.Ingilizce;
             lblDurum.Text = $"Soru: {oturum.SoruNo}/{oturum.ToplamKelime}";
             lblPuan.Text = $"Puan: {oturum.Puan}";
+            lblGeriBildirim.Visible = false;
 
             for (int i = 0; i < secenekButonlari.Length; i++)
             {
@@ -100,18 +106,25 @@ namespace KelimeEzber
                 if (kalanlar.Count == 1)
                 {
                     oturum.CevapVer(kalanlar[0].Text);
-                    DogruCevabiGoster(kalanlar[0]);
+                    DogruCevabiGoster(kalanlar[0], $"Doğru cevap: {kalanlar[0].Text}", CevapGosterildiRengi);
                 }
                 return;
             }
 
-            DogruCevabiGoster(buton);
+            if (oturum.SonKazanilanPuan > 0)
+                DogruCevabiGoster(buton, $"Doğru! +{oturum.SonKazanilanPuan} puan", PuanKazanildiRengi);
+            else
+                DogruCevabiGoster(buton, "Doğru", DogruBilindiRengi);
         }
 
         // bekleme sırasında başka şık seçilemesin diye tüm butonlar kapatılıyor
-        private void DogruCevabiGoster(Button dogruButon)
+        private void DogruCevabiGoster(Button dogruButon, string mesaj, Color kutuRengi)
         {
             dogruButon.BackColor = DogruCevapRengi;
+            // kutu yeni soruda EkraniGuncelle tarafından gizleniyor
+            lblGeriBildirim.Text = mesaj;
+            lblGeriBildirim.BackColor = kutuRengi;
+            lblGeriBildirim.Visible = true;
             // puan güncellenir
             lblPuan.Text = $"Puan: {oturum.Puan}";
             foreach (var b in secenekButonlari)

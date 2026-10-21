@@ -37,6 +37,7 @@
             this.lblDurum = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblSoru = new System.Windows.Forms.Label();
+            this.lblGeriBildirim = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -44,7 +45,7 @@
             // btnA
             // 
             this.btnA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnA.Location = new System.Drawing.Point(109, 308);
+            this.btnA.Location = new System.Drawing.Point(109, 373);
             this.btnA.Name = "btnA";
             this.btnA.Size = new System.Drawing.Size(243, 85);
             this.btnA.TabIndex = 0;
@@ -55,7 +56,7 @@
             // btnB
             // 
             this.btnB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnB.Location = new System.Drawing.Point(387, 308);
+            this.btnB.Location = new System.Drawing.Point(387, 373);
             this.btnB.Name = "btnB";
             this.btnB.Size = new System.Drawing.Size(243, 85);
             this.btnB.TabIndex = 1;
@@ -66,7 +67,7 @@
             // btnC
             // 
             this.btnC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnC.Location = new System.Drawing.Point(109, 417);
+            this.btnC.Location = new System.Drawing.Point(109, 482);
             this.btnC.Name = "btnC";
             this.btnC.Size = new System.Drawing.Size(243, 85);
             this.btnC.TabIndex = 2;
@@ -77,7 +78,7 @@
             // btnD
             // 
             this.btnD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnD.Location = new System.Drawing.Point(387, 417);
+            this.btnD.Location = new System.Drawing.Point(387, 482);
             this.btnD.Name = "btnD";
             this.btnD.Size = new System.Drawing.Size(243, 85);
             this.btnD.TabIndex = 3;
@@ -138,12 +139,23 @@
             this.lblSoru.TabIndex = 0;
             this.lblSoru.Text = "label3";
             this.lblSoru.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
+            //
+            // lblGeriBildirim
+            //
+            this.lblGeriBildirim.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblGeriBildirim.Location = new System.Drawing.Point(80, 278);
+            this.lblGeriBildirim.Name = "lblGeriBildirim";
+            this.lblGeriBildirim.Size = new System.Drawing.Size(584, 50);
+            this.lblGeriBildirim.TabIndex = 6;
+            this.lblGeriBildirim.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblGeriBildirim.Visible = false;
+            //
             // FormSoru
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(742, 550);
+            this.ClientSize = new System.Drawing.Size(742, 615);
+            this.Controls.Add(this.lblGeriBildirim);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnD);
@@ -173,5 +185,6 @@
         private System.Windows.Forms.Label lblPuan;
         private System.Windows.Forms.Label lblDurum;
         private System.Windows.Forms.Label lblSoru;
+        private System.Windows.Forms.Label lblGeriBildirim;
     }
 }
