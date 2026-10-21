@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -21,12 +22,20 @@ namespace KelimeEzber
         // doğru cevap yeşil gösterildikten sonra sonraki soruya geçmeden önce beklenen süre
         private readonly Timer gecisZamanlayicisi = new Timer { Interval = 1000 };
 
+        // süre sadece soru cevap beklerken ve pencere etkinken işliyor
+        private readonly Stopwatch kronometre = new Stopwatch();
+        private readonly Timer sureGostergesi = new Timer { Interval = 200 };
+        private bool cevapBekleniyor;
+        private bool pencereEtkin;
+
         public FormSoru(EzberOturumu oturum)
         {
             InitializeComponent();
             this.oturum = oturum;
             secenekButonlari = new[] { btnA, btnB, btnC, btnD };
             gecisZamanlayicisi.Tick += GecisSuresiDoldu;
+            sureGostergesi.Tick += (s, e) => SureyiGoster();
+            sureGostergesi.Start();
             EkraniGuncelle();
         }
 
@@ -34,7 +43,7 @@ namespace KelimeEzber
         {
             lblSoru.Text = oturum.AktifKelime.Ingilizce;
             lblDurum.Text = $"Soru: {oturum.SoruNo}/{oturum.ToplamKelime}";
-            lblPuan.Text = $"Puan: {oturum.Puan}";
+            lblPuan.Text = $": {oturum.Puan}";
             lblGeriBildirim.Visible = false;
             lblGeriBildirim.Width = panel2.Width;
             btnDevam.Visible = false;
@@ -51,6 +60,36 @@ namespace KelimeEzber
 
             // tıklanan buton odakta kalmasın diye yeni kelimede odak temizlenir
             ActiveControl = null;
+
+            cevapBekleniyor = true;
+            KronometreyiAyarla();
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            PuanVeSureyiHizala();
+        }
+
+        private void PuanVeSureyiHizala()
+        {
+            const int sagBosluk = 10;
+
+            int baslikGenisligi = Math.Max(lblPuanBaslik.PreferredWidth, lblSureBaslik.PreferredWidth);
+
+            // değer sütunu en uzun süre metnine göre ayarlanıyor
+            string sureMetni = lblSure.Text;
+            lblSure.Text = ": 0:00:00";
+            int degerGenisligi = lblSure.PreferredWidth;
+            lblSure.Text = sureMetni;
+
+            int degerX = panel1.ClientSize.Width - sagBosluk - degerGenisligi;
+            int baslikX = degerX - baslikGenisligi;
+
+            lblPuanBaslik.SetBounds(baslikX, lblPuanBaslik.Top, baslikGenisligi, lblPuanBaslik.Height);
+            lblSureBaslik.SetBounds(baslikX, lblSureBaslik.Top, baslikGenisligi, lblSureBaslik.Height);
+            lblPuan.SetBounds(degerX, lblPuan.Top, degerGenisligi, lblPuan.Height);
+            lblSure.SetBounds(degerX, lblSure.Top, degerGenisligi, lblSure.Height);
         }
 
         protected override void OnShown(EventArgs e)
@@ -64,6 +103,38 @@ namespace KelimeEzber
             base.OnActivated(e);
             if (!btnDevam.Visible)
                 ActiveControl = null;
+
+            pencereEtkin = true;
+            KronometreyiAyarla();
+        }
+
+        // başka programa geçilince, küçültülünce ya da mesaj kutusu açılınca süre durur
+        protected override void OnDeactivate(EventArgs e)
+        {
+            base.OnDeactivate(e);
+            pencereEtkin = false;
+            KronometreyiAyarla();
+        }
+
+        private void KronometreyiAyarla()
+        {
+            if (cevapBekleniyor && pencereEtkin)
+                kronometre.Start();
+            else
+                kronometre.Stop();
+
+            SureyiGoster();
+        }
+
+        private void SureyiGoster()
+        {
+            lblSure.Text = $": {SureMetni()}";
+        }
+
+        private string SureMetni()
+        {
+            var sure = kronometre.Elapsed;
+            return sure.TotalHours >= 1 ? sure.ToString(@"h\:mm\:ss") : sure.ToString(@"mm\:ss");
         }
 
         // oturum bitmeden pencere kapatılırsa yanlışlıkla çıkılmasın diye onay isteniyor
@@ -74,7 +145,8 @@ namespace KelimeEzber
                 var cevap = MessageBox.Show($"Oturum henüz bitmedi.\n\n" +
                                             $"Cevaplanan: {oturum.SoruNo - 1}/{oturum.ToplamKelime}\n" +
                                             $"İlk denemede doğru: {oturum.IlkDenemedeDogru}\n" +
-                                            $"Puan: {oturum.Puan}\n\n" +
+                                            $"Puan: {oturum.Puan}\n" +
+                                            $"Süre: {SureMetni()}\n\n" +
                                             "Oturumu bitirmek istediğine emin misin?",
                     "Oturumu Bitir", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
@@ -96,6 +168,8 @@ namespace KelimeEzber
         {
             gecisZamanlayicisi.Stop();
             gecisZamanlayicisi.Dispose();
+            sureGostergesi.Stop();
+            sureGostergesi.Dispose();
             base.OnFormClosed(e);
         }
 
@@ -141,10 +215,14 @@ namespace KelimeEzber
             lblGeriBildirim.BackColor = kutuRengi;
             lblGeriBildirim.Visible = true;
             // puan güncellenir
-            lblPuan.Text = $"Puan: {oturum.Puan}";
+            lblPuan.Text = $": {oturum.Puan}";
             foreach (var b in secenekButonlari)
                 b.Enabled = false;
             ActiveControl = null;
+
+            // yeşil bekleme ve Devam beklenirken süre durur
+            cevapBekleniyor = false;
+            KronometreyiAyarla();
 
             if (otomatikGec)
             {
@@ -186,7 +264,8 @@ namespace KelimeEzber
         {
             MessageBox.Show($"Tebrikler, tüm kelimeleri tamamladın!\n\n" +
                             $"İlk denemede doğru: {oturum.IlkDenemedeDogru}/{oturum.ToplamKelime}\n" +
-                            $"Toplam puan: {oturum.Puan}",
+                            $"Toplam puan: {oturum.Puan}\n" +
+                            $"Süre: {SureMetni()}",
                 "Oturum Bitti", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
