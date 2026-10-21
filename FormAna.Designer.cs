@@ -28,25 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnYukle = new System.Windows.Forms.Button();
             this.btnBaslat = new System.Windows.Forms.Button();
             this.btnCikis = new System.Windows.Forms.Button();
             this.comboBoxSozlukler = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnYukle
-            // 
-            this.btnYukle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnYukle.Location = new System.Drawing.Point(207, 220);
-            this.btnYukle.Name = "btnYukle";
-            this.btnYukle.Size = new System.Drawing.Size(111, 33);
-            this.btnYukle.TabIndex = 1;
-            this.btnYukle.Text = "Yükle";
-            this.btnYukle.UseVisualStyleBackColor = true;
-            this.btnYukle.Click += new System.EventHandler(this.btnYukle_Click);
-            // 
+            //
             // btnBaslat
             // 
             this.btnBaslat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -78,7 +66,6 @@
             this.comboBoxSozlukler.Name = "comboBoxSozlukler";
             this.comboBoxSozlukler.Size = new System.Drawing.Size(417, 33);
             this.comboBoxSozlukler.TabIndex = 4;
-            this.comboBoxSozlukler.SelectedIndexChanged += new System.EventHandler(this.comboBoxSozlukler_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -99,7 +86,6 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCikis);
             this.Controls.Add(this.btnBaslat);
-            this.Controls.Add(this.btnYukle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FormAna";
@@ -112,7 +98,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnYukle;
         private System.Windows.Forms.Button btnBaslat;
         private System.Windows.Forms.Button btnCikis;
         private System.Windows.Forms.ComboBox comboBoxSozlukler;

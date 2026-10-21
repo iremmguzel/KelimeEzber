@@ -7,8 +7,6 @@ namespace KelimeEzber
 {
     public partial class FormAna : Form
     {
-        private List<Kelime> kelimeler = new List<Kelime>();
-
         public FormAna()
         {
             InitializeComponent();
@@ -17,7 +15,6 @@ namespace KelimeEzber
         private void FormAna_Load(object sender, EventArgs e)
         {
             SozlukleriDoldur();
-            btnBaslat.Enabled = false;
         }
 
         private void SozlukleriDoldur()
@@ -33,12 +30,14 @@ namespace KelimeEzber
             }
             else
             {
+                btnBaslat.Enabled = false;
                 MessageBox.Show("Program klasöründe .txt uzantılı sözlük dosyası bulunamadı.",
                     "Kelime Ezber", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
-        private void btnYukle_Click(object sender, EventArgs e)
+        // Başlat'a basıldığı anda seçili sözlük yüklenip oturum başlatılıyor
+        private void btnBaslat_Click(object sender, EventArgs e)
         {
             if (comboBoxSozlukler.SelectedItem == null)
             {
@@ -47,7 +46,7 @@ namespace KelimeEzber
             }
 
             var sozluk = (Sozluk)comboBoxSozlukler.SelectedItem;
-            btnBaslat.Enabled = false;
+            List<Kelime> kelimeler;
 
             try
             {
@@ -68,23 +67,10 @@ namespace KelimeEzber
                 return;
             }
 
-            MessageBox.Show($"{kelimeler.Count} kelime yüklendi.", "Kelime Ezber",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-            btnBaslat.Enabled = true;
-        }
-
-        private void btnBaslat_Click(object sender, EventArgs e)
-        {
             using (var formSoru = new FormSoru(new EzberOturumu(kelimeler)))
             {
                 formSoru.ShowDialog(this);
             }
-        }
-
-        // başka bir sözlük seçilince önce onun yüklenmesi gerekiyor
-        private void comboBoxSozlukler_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            btnBaslat.Enabled = false;
         }
 
         private void btnCikis_Click(object sender, EventArgs e)
