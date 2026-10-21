@@ -9,6 +9,8 @@ namespace KelimeEzber
         private readonly EzberOturumu oturum;
         private readonly Button[] secenekButonlari;
 
+        private static readonly Color YanlisCevapRengi = Color.FromArgb(255, 190, 190);
+
         public FormSoru(EzberOturumu oturum)
         {
             InitializeComponent();
@@ -29,6 +31,7 @@ namespace KelimeEzber
                 // kırmızı yapılan butonları eski görünümüne döndür
                 secenekButonlari[i].BackColor = SystemColors.Control;
                 secenekButonlari[i].UseVisualStyleBackColor = true;
+                secenekButonlari[i].Enabled = true;
             }
 
             // tıklanan buton odakta kalmasın diye yeni kelimede odak temizlenir
@@ -67,7 +70,9 @@ namespace KelimeEzber
 
             if (!oturum.CevapVer(buton.Text))
             {
-                buton.BackColor = Color.Red;
+                buton.BackColor = YanlisCevapRengi;
+                // aynı yanlış şık tekrar seçilemesin
+                buton.Enabled = false;
                 ActiveControl = null;
                 return;
             }
