@@ -116,14 +116,18 @@ namespace KelimeEzber
             }
 
             if (oturum.SonKazanilanPuan > 0)
-                DogruCevabiGoster(buton, $"Doğru! +{oturum.SonKazanilanPuan} puan", PuanKazanildiRengi, otomatikGec: true);
+                DogruCevabiGoster(buton, "Doğru!", PuanKazanildiRengi, otomatikGec: true, puanMetni: $"+{oturum.SonKazanilanPuan} puan");
             else
                 DogruCevabiGoster(buton, "Doğru", DogruBilindiRengi, otomatikGec: true);
         }
 
         // bekleme sırasında başka şık seçilemesin diye tüm butonlar kapatılıyor
-        private void DogruCevabiGoster(Button dogruButon, string mesaj, Color kutuRengi, bool otomatikGec)
+        private void DogruCevabiGoster(Button dogruButon, string mesaj, Color kutuRengi, bool otomatikGec, string puanMetni = null)
         {
+            // kazanılan puan, ortadaki mesajdan ayrı olarak kutunun sağında gösteriliyor
+            lblPuanArtisi.Text = puanMetni;
+            lblPuanArtisi.Visible = puanMetni != null;
+
             dogruButon.BackColor = DogruCevapRengi;
             // kutu yeni soruda EkraniGuncelle tarafından gizleniyor
             lblGeriBildirim.Text = mesaj;

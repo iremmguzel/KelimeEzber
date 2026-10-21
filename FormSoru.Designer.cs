@@ -38,6 +38,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblSoru = new System.Windows.Forms.Label();
             this.lblGeriBildirim = new System.Windows.Forms.Label();
+            this.lblPuanArtisi = new System.Windows.Forms.Label();
             this.btnDevam = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -143,6 +144,7 @@
             //
             // lblGeriBildirim
             //
+            this.lblGeriBildirim.Controls.Add(this.lblPuanArtisi);
             this.lblGeriBildirim.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblGeriBildirim.Location = new System.Drawing.Point(80, 278);
             this.lblGeriBildirim.Name = "lblGeriBildirim";
@@ -151,13 +153,26 @@
             this.lblGeriBildirim.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblGeriBildirim.Visible = false;
             //
+            // lblPuanArtisi
+            //
+            this.lblPuanArtisi.BackColor = System.Drawing.Color.Transparent;
+            this.lblPuanArtisi.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblPuanArtisi.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblPuanArtisi.Location = new System.Drawing.Point(424, 0);
+            this.lblPuanArtisi.Name = "lblPuanArtisi";
+            this.lblPuanArtisi.Padding = new System.Windows.Forms.Padding(0, 0, 12, 0);
+            this.lblPuanArtisi.Size = new System.Drawing.Size(160, 50);
+            this.lblPuanArtisi.TabIndex = 0;
+            this.lblPuanArtisi.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblPuanArtisi.Visible = false;
+            //
             // btnDevam
             //
-            this.btnDevam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(160)))), ((int)(((byte)(0)))));
-            this.btnDevam.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(160)))), ((int)(((byte)(0)))));
+            this.btnDevam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
+            this.btnDevam.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
             this.btnDevam.FlatAppearance.BorderSize = 0;
-            this.btnDevam.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(140)))), ((int)(((byte)(0)))));
-            this.btnDevam.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(180)))), ((int)(((byte)(0)))));
+            this.btnDevam.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
+            this.btnDevam.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(175)))), ((int)(((byte)(0)))));
             this.btnDevam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDevam.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnDevam.Location = new System.Drawing.Point(534, 278);
@@ -206,6 +221,7 @@
         private System.Windows.Forms.Label lblDurum;
         private System.Windows.Forms.Label lblSoru;
         private System.Windows.Forms.Label lblGeriBildirim;
+        private System.Windows.Forms.Label lblPuanArtisi;
         private System.Windows.Forms.Button btnDevam;
     }
 }
