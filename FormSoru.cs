@@ -41,6 +41,25 @@ namespace KelimeEzber
             ActiveControl = null;
         }
 
+        // oturum bitmeden pencere kapatılırsa yanlışlıkla çıkılmasın diye onay isteniyor
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (!oturum.Bitti && e.CloseReason == CloseReason.UserClosing)
+            {
+                var cevap = MessageBox.Show($"Oturum henüz bitmedi.\n\n" +
+                                            $"Cevaplanan: {oturum.SoruNo - 1}/{oturum.ToplamKelime}\n" +
+                                            $"İlk denemede doğru: {oturum.IlkDenemedeDogru}\n" +
+                                            $"Puan: {oturum.Puan}\n\n" +
+                                            "Oturumu bitirmek istediğine emin misin?",
+                    "Oturumu Bitir", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+                if (cevap == DialogResult.No)
+                    e.Cancel = true;
+            }
+
+            base.OnFormClosing(e);
+        }
+
         // dört butonun Click olayı da buraya bağlı
         private void SecenekTiklandi(object sender, EventArgs e)
         {
