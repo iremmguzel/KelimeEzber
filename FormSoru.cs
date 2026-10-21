@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace KelimeEzber
@@ -10,12 +11,17 @@ namespace KelimeEzber
         private readonly Button[] secenekButonlari;
 
         private static readonly Color YanlisCevapRengi = Color.FromArgb(255, 190, 190);
+        private static readonly Color DogruCevapRengi = Color.FromArgb(190, 240, 190);
+
+        // doğru cevap yeşil gösterildikten sonra sonraki soruya geçmeden önce beklenen süre
+        private readonly Timer gecisZamanlayicisi = new Timer { Interval = 1000 };
 
         public FormSoru(EzberOturumu oturum)
         {
             InitializeComponent();
             this.oturum = oturum;
             secenekButonlari = new[] { btnA, btnB, btnC, btnD };
+            gecisZamanlayicisi.Tick += GecisSuresiDoldu;
             EkraniGuncelle();
         }
 
@@ -59,8 +65,22 @@ namespace KelimeEzber
                 if (cevap == DialogResult.No)
                     e.Cancel = true;
             }
+            // son soru cevaplanıp yeşil gösterilirken kapatılırsa sonuç yine gösterilsin
+            else if (oturum.Bitti && gecisZamanlayicisi.Enabled)
+            {
+                gecisZamanlayicisi.Stop();
+                OturumSonucunuGoster();
+            }
 
             base.OnFormClosing(e);
+        }
+
+        // bekleme sırasında pencere kapanırsa zamanlayıcı kapanmış formda çalışmaya devam etmesin
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            gecisZamanlayicisi.Stop();
+            gecisZamanlayicisi.Dispose();
+            base.OnFormClosed(e);
         }
 
         // dört butonun Click olayı da buraya bağlı
@@ -74,20 +94,53 @@ namespace KelimeEzber
                 // aynı yanlış şık tekrar seçilemesin
                 buton.Enabled = false;
                 ActiveControl = null;
+
+                // yanlışların hepsi elendiyse kalan şık doğru cevaptır, ayrıca tıklanması beklenmez
+                var kalanlar = secenekButonlari.Where(b => b.Enabled).ToList();
+                if (kalanlar.Count == 1)
+                {
+                    oturum.CevapVer(kalanlar[0].Text);
+                    DogruCevabiGoster(kalanlar[0]);
+                }
                 return;
             }
 
+            DogruCevabiGoster(buton);
+        }
+
+        // bekleme sırasında başka şık seçilemesin diye tüm butonlar kapatılıyor
+        private void DogruCevabiGoster(Button dogruButon)
+        {
+            dogruButon.BackColor = DogruCevapRengi;
+            // puan güncellenir
+            lblPuan.Text = $"Puan: {oturum.Puan}";
+            foreach (var b in secenekButonlari)
+                b.Enabled = false;
+            ActiveControl = null;
+
+            gecisZamanlayicisi.Start();
+        }
+
+        private void GecisSuresiDoldu(object sender, EventArgs e)
+        {
+            gecisZamanlayicisi.Stop();
+
             if (oturum.Bitti)
             {
-                MessageBox.Show($"Tebrikler, tüm kelimeleri tamamladın!\n\n" +
-                                $"İlk denemede doğru: {oturum.IlkDenemedeDogru}/{oturum.ToplamKelime}\n" +
-                                $"Toplam puan: {oturum.Puan}",
-                    "Oturum Bitti", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                OturumSonucunuGoster();
                 Close();
                 return;
             }
 
             EkraniGuncelle();
+        }
+
+        private void OturumSonucunuGoster()
+        {
+            MessageBox.Show($"Tebrikler, tüm kelimeleri tamamladın!\n\n" +
+                            $"İlk denemede doğru: {oturum.IlkDenemedeDogru}/{oturum.ToplamKelime}\n" +
+                            $"Toplam puan: {oturum.Puan}",
+                "Oturum Bitti", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
