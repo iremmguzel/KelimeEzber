@@ -30,6 +30,15 @@ namespace KelimeEzber
                 secenekButonlari[i].BackColor = SystemColors.Control;
                 secenekButonlari[i].UseVisualStyleBackColor = true;
             }
+
+            // tıklanan buton odakta kalmasın diye yeni kelimede odak temizlenir
+            ActiveControl = null;
+        }
+
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+            ActiveControl = null;
         }
 
         // dört butonun Click olayı da buraya bağlı

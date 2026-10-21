@@ -130,8 +130,8 @@
             // 
             // lblSoru
             // 
-            this.lblSoru.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblSoru.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSoru.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblSoru.Location = new System.Drawing.Point(0, 0);
             this.lblSoru.Name = "lblSoru";
             this.lblSoru.Size = new System.Drawing.Size(584, 100);
@@ -156,7 +156,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
