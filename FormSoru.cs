@@ -15,9 +15,9 @@ namespace KelimeEzber
         private static readonly Color DogruCevapRengi = Color.FromArgb(190, 240, 190);
 
         // geri bildirim kutusunun renkleri: Puan Kazanıldı, Sonradan Bilindi, Cevap Gösterildi
-        private static readonly Color PuanKazanildiRengi = Color.FromArgb(57, 255, 20);
-        private static readonly Color DogruBilindiRengi = Color.FromArgb(120, 200, 120);
-        private static readonly Color CevapGosterildiRengi = Color.FromArgb(255, 193, 7);
+        private static readonly Color PuanKazanildiRengi = Color.FromArgb(102, 187, 106);
+        private static readonly Color DogruBilindiRengi = Color.FromArgb(165, 214, 167);
+        private static readonly Color CevapGosterildiRengi = Color.FromArgb(247, 222, 100);
 
         // doğru cevap yeşil gösterildikten sonra sonraki soruya geçmeden önce beklenen süre
         private readonly Timer gecisZamanlayicisi = new Timer { Interval = 1000 };

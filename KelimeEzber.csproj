@@ -58,6 +58,9 @@
     <Compile Include="FormAna.Designer.cs">
       <DependentUpon>FormAna.cs</DependentUpon>
     </Compile>
+    <Compile Include="DuzButon.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="EzberOturumu.cs" />
     <Compile Include="Kelime.cs" />
     <Compile Include="SoruSayisiSecenegi.cs" />

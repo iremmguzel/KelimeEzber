@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -123,6 +124,31 @@ namespace KelimeEzber
             {
                 formSoru.ShowDialog(this);
             }
+        }
+
+        // yazının kutunun kenarlarına yapışık durmaması için soldan boşluk bırakılır ve dikeyde ortalanır
+        private void ComboBoxCiz(object sender, DrawItemEventArgs e)
+        {
+            var comboBox = (ComboBox)sender;
+
+            bool kapaliKutu = (e.State & DrawItemState.ComboBoxEdit) != 0;
+            Color zemin = kapaliKutu ? comboBox.BackColor : e.BackColor;
+            Color yazi = kapaliKutu ? comboBox.ForeColor : e.ForeColor;
+            if (!comboBox.Enabled)
+                yazi = SystemColors.GrayText;
+
+            using (var firca = new SolidBrush(zemin))
+                e.Graphics.FillRectangle(firca, e.Bounds);
+
+            if (e.Index >= 0)
+            {
+                const int solBosluk = 6;
+                var alan = new Rectangle(e.Bounds.X + solBosluk, e.Bounds.Y, e.Bounds.Width - solBosluk, e.Bounds.Height);
+                TextRenderer.DrawText(e.Graphics, comboBox.GetItemText(comboBox.Items[e.Index]), e.Font, alan, yazi,
+                    TextFormatFlags.Left | TextFormatFlags.VerticalCenter | TextFormatFlags.EndEllipsis);
+            }
+
+            e.DrawFocusRectangle();
         }
 
         private void btnCikis_Click(object sender, EventArgs e)

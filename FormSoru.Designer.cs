@@ -50,8 +50,8 @@
             // 
             // btnA
             // 
-            this.btnA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnA.Location = new System.Drawing.Point(109, 373);
+            this.btnA.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnA.Location = new System.Drawing.Point(109, 349);
             this.btnA.Name = "btnA";
             this.btnA.Size = new System.Drawing.Size(243, 85);
             this.btnA.TabIndex = 0;
@@ -61,8 +61,8 @@
             // 
             // btnB
             // 
-            this.btnB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnB.Location = new System.Drawing.Point(387, 373);
+            this.btnB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnB.Location = new System.Drawing.Point(387, 349);
             this.btnB.Name = "btnB";
             this.btnB.Size = new System.Drawing.Size(243, 85);
             this.btnB.TabIndex = 1;
@@ -72,8 +72,8 @@
             // 
             // btnC
             // 
-            this.btnC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnC.Location = new System.Drawing.Point(109, 482);
+            this.btnC.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnC.Location = new System.Drawing.Point(109, 458);
             this.btnC.Name = "btnC";
             this.btnC.Size = new System.Drawing.Size(243, 85);
             this.btnC.TabIndex = 2;
@@ -83,8 +83,8 @@
             // 
             // btnD
             // 
-            this.btnD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnD.Location = new System.Drawing.Point(387, 482);
+            this.btnD.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnD.Location = new System.Drawing.Point(387, 458);
             this.btnD.Name = "btnD";
             this.btnD.Size = new System.Drawing.Size(243, 85);
             this.btnD.TabIndex = 3;
@@ -94,7 +94,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.OliveDrab;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(58)))), ((int)(((byte)(103)))));
             this.panel1.Controls.Add(this.lblSure);
             this.panel1.Controls.Add(this.lblSureBaslik);
             this.panel1.Controls.Add(this.lblPuan);
@@ -102,13 +102,14 @@
             this.panel1.Controls.Add(this.lblDurum);
             this.panel1.Location = new System.Drawing.Point(80, 33);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(584, 100);
+            this.panel1.Size = new System.Drawing.Size(584, 76);
             this.panel1.TabIndex = 4;
             // 
             // lblSure
             // 
-            this.lblSure.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblSure.Location = new System.Drawing.Point(444, 34);
+            this.lblSure.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblSure.ForeColor = System.Drawing.Color.White;
+            this.lblSure.Location = new System.Drawing.Point(444, 38);
             this.lblSure.Name = "lblSure";
             this.lblSure.Size = new System.Drawing.Size(130, 32);
             this.lblSure.TabIndex = 4;
@@ -117,8 +118,9 @@
             // 
             // lblSureBaslik
             // 
-            this.lblSureBaslik.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblSureBaslik.Location = new System.Drawing.Point(364, 34);
+            this.lblSureBaslik.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblSureBaslik.ForeColor = System.Drawing.Color.White;
+            this.lblSureBaslik.Location = new System.Drawing.Point(364, 38);
             this.lblSureBaslik.Name = "lblSureBaslik";
             this.lblSureBaslik.Size = new System.Drawing.Size(80, 32);
             this.lblSureBaslik.TabIndex = 3;
@@ -127,8 +129,9 @@
             // 
             // lblPuan
             // 
-            this.lblPuan.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblPuan.Location = new System.Drawing.Point(444, 0);
+            this.lblPuan.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblPuan.ForeColor = System.Drawing.Color.White;
+            this.lblPuan.Location = new System.Drawing.Point(444, 6);
             this.lblPuan.Name = "lblPuan";
             this.lblPuan.Size = new System.Drawing.Size(130, 32);
             this.lblPuan.TabIndex = 2;
@@ -137,8 +140,9 @@
             // 
             // lblPuanBaslik
             // 
-            this.lblPuanBaslik.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblPuanBaslik.Location = new System.Drawing.Point(364, 0);
+            this.lblPuanBaslik.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblPuanBaslik.ForeColor = System.Drawing.Color.White;
+            this.lblPuanBaslik.Location = new System.Drawing.Point(364, 6);
             this.lblPuanBaslik.Name = "lblPuanBaslik";
             this.lblPuanBaslik.Size = new System.Drawing.Size(80, 32);
             this.lblPuanBaslik.TabIndex = 1;
@@ -147,21 +151,20 @@
             // 
             // lblDurum
             // 
-            this.lblDurum.AutoSize = true;
-            this.lblDurum.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblDurum.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblDurum.Location = new System.Drawing.Point(0, 0);
+            this.lblDurum.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblDurum.ForeColor = System.Drawing.Color.White;
+            this.lblDurum.Location = new System.Drawing.Point(12, 22);
             this.lblDurum.Name = "lblDurum";
-            this.lblDurum.Size = new System.Drawing.Size(92, 32);
+            this.lblDurum.Size = new System.Drawing.Size(200, 32);
             this.lblDurum.TabIndex = 0;
             this.lblDurum.Text = "label1";
             this.lblDurum.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(237)))), ((int)(((byte)(247)))));
             this.panel2.Controls.Add(this.lblSoru);
-            this.panel2.Location = new System.Drawing.Point(80, 163);
+            this.panel2.Location = new System.Drawing.Point(80, 139);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(584, 100);
             this.panel2.TabIndex = 5;
@@ -169,7 +172,8 @@
             // lblSoru
             // 
             this.lblSoru.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblSoru.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblSoru.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblSoru.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(58)))), ((int)(((byte)(103)))));
             this.lblSoru.Location = new System.Drawing.Point(0, 0);
             this.lblSoru.Name = "lblSoru";
             this.lblSoru.Size = new System.Drawing.Size(584, 100);
@@ -180,8 +184,9 @@
             // lblGeriBildirim
             // 
             this.lblGeriBildirim.Controls.Add(this.lblPuanArtisi);
-            this.lblGeriBildirim.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblGeriBildirim.Location = new System.Drawing.Point(80, 278);
+            this.lblGeriBildirim.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblGeriBildirim.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.lblGeriBildirim.Location = new System.Drawing.Point(80, 254);
             this.lblGeriBildirim.Name = "lblGeriBildirim";
             this.lblGeriBildirim.Size = new System.Drawing.Size(584, 50);
             this.lblGeriBildirim.TabIndex = 6;
@@ -192,25 +197,26 @@
             // 
             this.lblPuanArtisi.BackColor = System.Drawing.Color.Transparent;
             this.lblPuanArtisi.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblPuanArtisi.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblPuanArtisi.Location = new System.Drawing.Point(424, 0);
+            this.lblPuanArtisi.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblPuanArtisi.Location = new System.Drawing.Point(384, 0);
             this.lblPuanArtisi.Name = "lblPuanArtisi";
             this.lblPuanArtisi.Padding = new System.Windows.Forms.Padding(0, 0, 12, 0);
-            this.lblPuanArtisi.Size = new System.Drawing.Size(160, 50);
+            this.lblPuanArtisi.Size = new System.Drawing.Size(200, 50);
             this.lblPuanArtisi.TabIndex = 0;
             this.lblPuanArtisi.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblPuanArtisi.Visible = false;
             // 
             // btnDevam
             // 
-            this.btnDevam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.btnDevam.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
+            this.btnDevam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(222)))), ((int)(((byte)(100)))));
+            this.btnDevam.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(222)))), ((int)(((byte)(100)))));
             this.btnDevam.FlatAppearance.BorderSize = 0;
-            this.btnDevam.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(0)))));
-            this.btnDevam.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(175)))), ((int)(((byte)(0)))));
+            this.btnDevam.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(200)))), ((int)(((byte)(70)))));
+            this.btnDevam.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(212)))), ((int)(((byte)(82)))));
             this.btnDevam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDevam.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnDevam.Location = new System.Drawing.Point(534, 278);
+            this.btnDevam.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnDevam.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btnDevam.Location = new System.Drawing.Point(534, 254);
             this.btnDevam.Name = "btnDevam";
             this.btnDevam.Size = new System.Drawing.Size(130, 50);
             this.btnDevam.TabIndex = 7;
@@ -223,7 +229,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(742, 615);
+            this.ClientSize = new System.Drawing.Size(742, 591);
             this.Controls.Add(this.btnDevam);
             this.Controls.Add(this.lblGeriBildirim);
             this.Controls.Add(this.panel2);
@@ -236,7 +242,7 @@
             this.MaximizeBox = false;
             this.Name = "FormSoru";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Çoktan Seçmeli Sorular";
+            this.Text = "Kelime Ezber";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
