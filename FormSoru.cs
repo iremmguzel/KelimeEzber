@@ -142,15 +142,13 @@ namespace KelimeEzber
         {
             if (!oturum.Bitti && e.CloseReason == CloseReason.UserClosing)
             {
-                var cevap = MessageBox.Show($"Oturum henüz bitmedi.\n\n" +
-                                            $"Cevaplanan: {oturum.SoruNo - 1}/{oturum.ToplamSoru}\n" +
-                                            $"İlk denemede doğru: {oturum.IlkDenemedeDogru}\n" +
-                                            $"Puan: {oturum.Puan}\n" +
-                                            $"Süre: {SureMetni()}\n\n" +
-                                            "Oturumu bitirmek istediğine emin misin?",
-                    "Oturumu Bitir", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                bool bitir = FormOzet.BitirmeOnayiAl(this,
+                    ("Cevaplanan", $"{oturum.SoruNo - 1} / {oturum.ToplamSoru}"),
+                    ("İlk denemede doğru", oturum.IlkDenemedeDogru.ToString()),
+                    ("Puan", oturum.Puan.ToString()),
+                    ("Süre", SureMetni()));
 
-                if (cevap == DialogResult.No)
+                if (!bitir)
                     e.Cancel = true;
             }
             // son soru cevaplanıp yeşil gösterilirken kapatılırsa sonuç yine gösterilir
@@ -266,11 +264,10 @@ namespace KelimeEzber
                 ? "Tebrikler, tüm kelimeleri tamamladın!"
                 : $"Tebrikler, {oturum.ToplamSoru} soruyu tamamladın!";
 
-            MessageBox.Show($"{tebrik}\n\n" +
-                            $"İlk denemede doğru: {oturum.IlkDenemedeDogru}/{oturum.ToplamSoru}\n" +
-                            $"Toplam puan: {oturum.Puan}\n" +
-                            $"Süre: {SureMetni()}",
-                "Oturum Bitti", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            FormOzet.SonucuGoster(this, tebrik,
+                ("İlk denemede doğru", $"{oturum.IlkDenemedeDogru} / {oturum.ToplamSoru}"),
+                ("Toplam puan", oturum.Puan.ToString()),
+                ("Süre", SureMetni()));
         }
     }
 }
