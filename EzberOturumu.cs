@@ -23,22 +23,38 @@ namespace KelimeEzber
         public int SonKazanilanPuan { get; private set; }
         public List<string> Secenekler { get; private set; }
 
-        public int ToplamKelime => kelimeler.Count;
+        public int ToplamSoru => kelimeler.Count;
+        public bool TumKelimelerSoruluyor { get; }
         public int SoruNo => index + 1;
         public bool Bitti => index >= kelimeler.Count;
         public Kelime AktifKelime => Bitti ? null : kelimeler[index];
 
+        // soru sayısı verilmezse sözlükteki tüm kelimeler sorulur
         public EzberOturumu(List<Kelime> sozluk) : this(sozluk, new Random())
         {
         }
 
-        public EzberOturumu(List<Kelime> sozluk, Random random)
+        public EzberOturumu(List<Kelime> sozluk, Random random) : this(sozluk, sozluk?.Count ?? 0, random)
+        {
+        }
+
+        public EzberOturumu(List<Kelime> sozluk, int soruSayisi) : this(sozluk, soruSayisi, new Random())
+        {
+        }
+
+        public EzberOturumu(List<Kelime> sozluk, int soruSayisi, Random random)
         {
             if (!YeterliMi(sozluk))
                 throw new ArgumentException($"Sözlükte en az {SecenekSayisi} farklı anlam olmalı.", nameof(sozluk));
+            if (soruSayisi <= 0)
+                throw new ArgumentOutOfRangeException(nameof(soruSayisi), "Soru sayısı 0'dan büyük olmalı.");
 
             this.random = random;
-            kelimeler = Karistir(sozluk);
+            // sorular karıştırılmış sözlüğün ilk kelimelerinden seçilir,
+            // soru sayısı kelime sayısından büyükse tüm kelimeler sorulur
+            kelimeler = Karistir(sozluk).Take(soruSayisi).ToList();
+            TumKelimelerSoruluyor = kelimeler.Count == sozluk.Count;
+            // yanlış şıklar sadece sorulan kelimelerden değil, sözlüğün tamamından seçilir
             tumAnlamlar = sozluk.Select(k => k.Turkce).Distinct().ToList();
 
             SoruyuHazirla();

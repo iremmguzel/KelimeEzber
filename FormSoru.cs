@@ -42,7 +42,7 @@ namespace KelimeEzber
         private void EkraniGuncelle()
         {
             lblSoru.Text = oturum.AktifKelime.Ingilizce;
-            lblDurum.Text = $"Soru: {oturum.SoruNo}/{oturum.ToplamKelime}";
+            lblDurum.Text = $"Soru: {oturum.SoruNo}/{oturum.ToplamSoru}";
             lblPuan.Text = $": {oturum.Puan}";
             lblGeriBildirim.Visible = false;
             lblGeriBildirim.Width = panel2.Width;
@@ -143,7 +143,7 @@ namespace KelimeEzber
             if (!oturum.Bitti && e.CloseReason == CloseReason.UserClosing)
             {
                 var cevap = MessageBox.Show($"Oturum henüz bitmedi.\n\n" +
-                                            $"Cevaplanan: {oturum.SoruNo - 1}/{oturum.ToplamKelime}\n" +
+                                            $"Cevaplanan: {oturum.SoruNo - 1}/{oturum.ToplamSoru}\n" +
                                             $"İlk denemede doğru: {oturum.IlkDenemedeDogru}\n" +
                                             $"Puan: {oturum.Puan}\n" +
                                             $"Süre: {SureMetni()}\n\n" +
@@ -262,8 +262,12 @@ namespace KelimeEzber
 
         private void OturumSonucunuGoster()
         {
-            MessageBox.Show($"Tebrikler, tüm kelimeleri tamamladın!\n\n" +
-                            $"İlk denemede doğru: {oturum.IlkDenemedeDogru}/{oturum.ToplamKelime}\n" +
+            string tebrik = oturum.TumKelimelerSoruluyor
+                ? "Tebrikler, tüm kelimeleri tamamladın!"
+                : $"Tebrikler, {oturum.ToplamSoru} soruyu tamamladın!";
+
+            MessageBox.Show($"{tebrik}\n\n" +
+                            $"İlk denemede doğru: {oturum.IlkDenemedeDogru}/{oturum.ToplamSoru}\n" +
                             $"Toplam puan: {oturum.Puan}\n" +
                             $"Süre: {SureMetni()}",
                 "Oturum Bitti", MessageBoxButtons.OK, MessageBoxIcon.Information);

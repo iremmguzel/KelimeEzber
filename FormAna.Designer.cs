@@ -32,13 +32,16 @@
             this.btnCikis = new System.Windows.Forms.Button();
             this.comboBoxSozlukler = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBoxSoruSayisi = new System.Windows.Forms.ComboBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             //
             // btnBaslat
             // 
             this.btnBaslat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnBaslat.Location = new System.Drawing.Point(324, 220);
+            this.btnBaslat.Location = new System.Drawing.Point(324, 335);
             this.btnBaslat.Name = "btnBaslat";
             this.btnBaslat.Size = new System.Drawing.Size(116, 33);
             this.btnBaslat.TabIndex = 2;
@@ -49,7 +52,7 @@
             // btnCikis
             // 
             this.btnCikis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnCikis.Location = new System.Drawing.Point(446, 220);
+            this.btnCikis.Location = new System.Drawing.Point(446, 335);
             this.btnCikis.Name = "btnCikis";
             this.btnCikis.Size = new System.Drawing.Size(104, 33);
             this.btnCikis.TabIndex = 3;
@@ -66,7 +69,8 @@
             this.comboBoxSozlukler.Name = "comboBoxSozlukler";
             this.comboBoxSozlukler.Size = new System.Drawing.Size(417, 33);
             this.comboBoxSozlukler.TabIndex = 4;
-            // 
+            this.comboBoxSozlukler.SelectedIndexChanged += new System.EventHandler(this.comboBoxSozlukler_SelectedIndexChanged);
+            //
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.comboBoxSozlukler);
@@ -77,12 +81,34 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sözlük";
-            // 
+            //
+            // comboBoxSoruSayisi
+            //
+            this.comboBoxSoruSayisi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.comboBoxSoruSayisi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSoruSayisi.FormattingEnabled = true;
+            this.comboBoxSoruSayisi.Location = new System.Drawing.Point(33, 31);
+            this.comboBoxSoruSayisi.Name = "comboBoxSoruSayisi";
+            this.comboBoxSoruSayisi.Size = new System.Drawing.Size(150, 33);
+            this.comboBoxSoruSayisi.TabIndex = 0;
+            //
+            // groupBox2
+            //
+            this.groupBox2.Controls.Add(this.comboBoxSoruSayisi);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBox2.Location = new System.Drawing.Point(77, 175);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(473, 99);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Soru sayısı";
+            //
             // FormAna
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 298);
+            this.ClientSize = new System.Drawing.Size(625, 413);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCikis);
             this.Controls.Add(this.btnBaslat);
@@ -93,6 +119,7 @@
             this.Text = "Kelime Ezber";
             this.Load += new System.EventHandler(this.FormAna_Load);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -102,6 +129,8 @@
         private System.Windows.Forms.Button btnCikis;
         private System.Windows.Forms.ComboBox comboBoxSozlukler;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox comboBoxSoruSayisi;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
 

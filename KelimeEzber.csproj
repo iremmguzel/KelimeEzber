@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="EzberOturumu.cs" />
     <Compile Include="Kelime.cs" />
+    <Compile Include="SoruSayisiSecenegi.cs" />
     <Compile Include="Sozluk.cs" />
     <Compile Include="SozlukYonetici.cs" />
     <Compile Include="Program.cs" />
