@@ -9,10 +9,10 @@ namespace KelimeEzber
 {
     public static class SozlukYonetici
     {
-        // sözlükler .exe dosyasının bulunduğu klasörden okunuyor
+        // sözlükler .exe dosyasının bulunduğu klasörden okunur
         private static string Klasor => AppDomain.CurrentDomain.BaseDirectory;
 
-        // dosya adları Türkçe karakter ve boşluk içermiyor, listede görünecek ad ilk satırdaki başlıktan alınıyor
+        // dosya adları Türkçe karakter ve boşluk içermez, listede görünecek ad ilk satırdaki başlıktan alınır
         private const string BaslikIsareti = "#";
 
         public static List<Sozluk> SozlukleriListele()
@@ -23,7 +23,7 @@ namespace KelimeEzber
                 .ToList();
         }
 
-        // başlık satırı yoksa dosya adından üretiliyor:
+        // başlık satırı yoksa dosya adından üretilir:
         // temel_kelimeler -> Temel Kelimeler
         private static string AdiBul(string yol)
         {

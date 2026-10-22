@@ -68,7 +68,7 @@ namespace KelimeEzber
             if (!comboBoxSoruSayisi.Enabled)
                 return;
 
-            // önceki seçim yeni sözlükte de varsa korunuyor, yoksa ilk seçenek seçilir
+            // önceki seçim yeni sözlükte de varsa korunur, yoksa ilk seçenek seçilir
             int index = 0;
             if (onceki != null)
             {

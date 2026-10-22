@@ -4,8 +4,8 @@ using System.Linq;
 
 namespace KelimeEzber
 {
-    // Bir ezber oturumunun soru sırası, şıklar ve puan hesabı burada tutuluyor.
-    // Form sadece ekranı güncelliyor.
+    // Bir ezber oturumunun soru sırası, şıklar ve puan hesabı burada tutulur
+    // Form sadece ekranı günceller
     public class EzberOturumu
     {
         public const int SecenekSayisi = 4;
@@ -60,7 +60,7 @@ namespace KelimeEzber
             SoruyuHazirla();
         }
 
-        // 4 farklı şık üretebilmek için en az 4 farklı anlam gerekiyor
+        // 4 farklı şık üretebilmek için en az 4 farklı anlam gerekli
         public static bool YeterliMi(List<Kelime> sozluk)
         {
             return sozluk != null && sozluk.Select(k => k.Turkce).Distinct().Count() >= SecenekSayisi;
@@ -80,7 +80,7 @@ namespace KelimeEzber
                 return false;
             }
 
-            // sadece ilk denemede bilinirse puan veriliyor
+            // sadece ilk denemede bilinirse puan verilir
             if (ilkDeneme)
             {
                 Puan += DogruCevapPuani;
@@ -105,7 +105,7 @@ namespace KelimeEzber
 
             string dogru = AktifKelime.Turkce;
 
-            // aynı anlam iki kez çıkmasın diye yanlışlar doğru cevap hariç tutularak seçiliyor
+            // aynı anlamın iki kez çıkmaması için yanlışlar doğru cevap hariç tutularak seçilir
             var secenekler = Karistir(tumAnlamlar.Where(a => a != dogru).ToList())
                 .Take(SecenekSayisi - 1)
                 .ToList();

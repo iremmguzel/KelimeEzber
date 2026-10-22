@@ -16,7 +16,7 @@ namespace KelimeEzber
             Tumu = tumu;
         }
 
-        // kelime sayısına eşit ya da büyük hazır sayılar gösterilmiyor, en sona Tümü ekleniyor
+        // kelime sayısına eşit ya da büyük hazır sayılar gösterilmez, en sona Tümü eklenir
         // ilk seçenek varsayılan: 10, sözlük küçükse Tümü
         public static List<SoruSayisiSecenegi> Olustur(int kelimeSayisi)
         {

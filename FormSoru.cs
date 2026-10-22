@@ -14,7 +14,7 @@ namespace KelimeEzber
         private static readonly Color YanlisCevapRengi = Color.FromArgb(255, 190, 190);
         private static readonly Color DogruCevapRengi = Color.FromArgb(190, 240, 190);
 
-        // geri bildirim kutusunun renkleri: puan kazanıldı, sonradan bilindi, cevap gösterildi
+        // geri bildirim kutusunun renkleri: Puan Kazanıldı, Sonradan Bilindi, Cevap Gösterildi
         private static readonly Color PuanKazanildiRengi = Color.FromArgb(57, 255, 20);
         private static readonly Color DogruBilindiRengi = Color.FromArgb(120, 200, 120);
         private static readonly Color CevapGosterildiRengi = Color.FromArgb(255, 193, 7);
@@ -22,7 +22,7 @@ namespace KelimeEzber
         // doğru cevap yeşil gösterildikten sonra sonraki soruya geçmeden önce beklenen süre
         private readonly Timer gecisZamanlayicisi = new Timer { Interval = 1000 };
 
-        // süre sadece soru cevap beklerken ve pencere etkinken işliyor
+        // süre sadece soru cevap beklerken ve pencere etkinken işler
         private readonly Stopwatch kronometre = new Stopwatch();
         private readonly Timer sureGostergesi = new Timer { Interval = 200 };
         private bool cevapBekleniyor;
@@ -52,13 +52,13 @@ namespace KelimeEzber
             for (int i = 0; i < secenekButonlari.Length; i++)
             {
                 secenekButonlari[i].Text = oturum.Secenekler[i];
-                // kırmızı yapılan butonları eski görünümüne döndür
+                // kırmızı yapılan butonlar eski görünümüne döndürülür
                 secenekButonlari[i].BackColor = SystemColors.Control;
                 secenekButonlari[i].UseVisualStyleBackColor = true;
                 secenekButonlari[i].Enabled = true;
             }
 
-            // tıklanan buton odakta kalmasın diye yeni kelimede odak temizlenir
+            // tıklanan butonun odakta kalmaması için yeni kelimede odak temizlenir
             ActiveControl = null;
 
             cevapBekleniyor = true;
@@ -77,7 +77,7 @@ namespace KelimeEzber
 
             int baslikGenisligi = Math.Max(lblPuanBaslik.PreferredWidth, lblSureBaslik.PreferredWidth);
 
-            // değer sütunu en uzun süre metnine göre ayarlanıyor
+            // değer sütunu en uzun süre metnine göre ayarlanır
             string sureMetni = lblSure.Text;
             lblSure.Text = ": 0:00:00";
             int degerGenisligi = lblSure.PreferredWidth;
@@ -137,7 +137,7 @@ namespace KelimeEzber
             return sure.TotalHours >= 1 ? sure.ToString(@"h\:mm\:ss") : sure.ToString(@"mm\:ss");
         }
 
-        // oturum bitmeden pencere kapatılırsa yanlışlıkla çıkılmasın diye onay isteniyor
+        // oturum bitmeden pencere kapatıldığında yanlışlıkla çıkılmaması için onay istenir
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             if (!oturum.Bitti && e.CloseReason == CloseReason.UserClosing)
@@ -153,7 +153,7 @@ namespace KelimeEzber
                 if (cevap == DialogResult.No)
                     e.Cancel = true;
             }
-            // son soru cevaplanıp yeşil gösterilirken kapatılırsa sonuç yine gösterilsin
+            // son soru cevaplanıp yeşil gösterilirken kapatılırsa sonuç yine gösterilir
             else if (oturum.Bitti && (gecisZamanlayicisi.Enabled || btnDevam.Visible))
             {
                 gecisZamanlayicisi.Stop();
@@ -163,7 +163,7 @@ namespace KelimeEzber
             base.OnFormClosing(e);
         }
 
-        // bekleme sırasında pencere kapanırsa zamanlayıcı kapanmış formda çalışmaya devam etmesin
+        // bekleme sırasında pencere kapanırsa zamanlayıcı kapanmış formda çalışmaya devam etmez
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
             gecisZamanlayicisi.Stop();
@@ -181,7 +181,7 @@ namespace KelimeEzber
             if (!oturum.CevapVer(buton.Text))
             {
                 buton.BackColor = YanlisCevapRengi;
-                // aynı yanlış şık tekrar seçilemesin
+                // aynı yanlış şık tekrar seçilemez
                 buton.Enabled = false;
                 ActiveControl = null;
 
@@ -190,7 +190,7 @@ namespace KelimeEzber
                 if (kalanlar.Count == 1)
                 {
                     oturum.CevapVer(kalanlar[0].Text);
-                    // kullanıcı bilemediği kelimelerde doğru cevabı inceleyebilsin diye otomatik geçilmiyor
+                    // kullanıcı bilemediği kelimelerde doğru cevabı inceleyebilmesi için otomatik olarak geçilmez, sıradaki kelimeye Devam butonuyla geçilir
                     DogruCevabiGoster(kalanlar[0], "Bu kelimeyi not al!", CevapGosterildiRengi, otomatikGec: false);
                 }
                 return;
@@ -202,15 +202,15 @@ namespace KelimeEzber
                 DogruCevabiGoster(buton, "Doğru", DogruBilindiRengi, otomatikGec: true);
         }
 
-        // bekleme sırasında başka şık seçilemesin diye tüm butonlar kapatılıyor
+        // bekleme sırasında başka şık seçilemesin diye tüm butonlar kapatılır
         private void DogruCevabiGoster(Button dogruButon, string mesaj, Color kutuRengi, bool otomatikGec, string puanMetni = null)
         {
-            // kazanılan puan, ortadaki mesajdan ayrı olarak kutunun sağında gösteriliyor
+            // kazanılan puan, ortadaki mesajdan ayrı olarak kutunun sağında gösterilir
             lblPuanArtisi.Text = puanMetni;
             lblPuanArtisi.Visible = puanMetni != null;
 
             dogruButon.BackColor = DogruCevapRengi;
-            // kutu yeni soruda EkraniGuncelle tarafından gizleniyor
+            // kutu yeni soruda EkraniGuncelle tarafından gizlenir
             lblGeriBildirim.Text = mesaj;
             lblGeriBildirim.BackColor = kutuRengi;
             lblGeriBildirim.Visible = true;
@@ -230,7 +230,7 @@ namespace KelimeEzber
                 return;
             }
 
-            // kutu daralıp sağında Devam butonu gösteriliyor, Enter da Devam'a basmış sayılıyor
+            // kutu daralıp sağında Devam butonu gösterilir
             lblGeriBildirim.Width = btnDevam.Left - lblGeriBildirim.Left - 10;
             btnDevam.Visible = true;
             AcceptButton = btnDevam;
