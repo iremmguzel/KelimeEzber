@@ -41,7 +41,7 @@
             // btnBaslat
             // 
             this.btnBaslat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnBaslat.Location = new System.Drawing.Point(324, 335);
+            this.btnBaslat.Location = new System.Drawing.Point(271, 258);
             this.btnBaslat.Name = "btnBaslat";
             this.btnBaslat.Size = new System.Drawing.Size(116, 33);
             this.btnBaslat.TabIndex = 2;
@@ -52,7 +52,7 @@
             // btnCikis
             // 
             this.btnCikis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnCikis.Location = new System.Drawing.Point(446, 335);
+            this.btnCikis.Location = new System.Drawing.Point(393, 258);
             this.btnCikis.Name = "btnCikis";
             this.btnCikis.Size = new System.Drawing.Size(104, 33);
             this.btnCikis.TabIndex = 3;
@@ -65,20 +65,20 @@
             this.comboBoxSozlukler.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.comboBoxSozlukler.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSozlukler.FormattingEnabled = true;
-            this.comboBoxSozlukler.Location = new System.Drawing.Point(33, 31);
+            this.comboBoxSozlukler.Location = new System.Drawing.Point(33, 44);
             this.comboBoxSozlukler.Name = "comboBoxSozlukler";
-            this.comboBoxSozlukler.Size = new System.Drawing.Size(417, 33);
-            this.comboBoxSozlukler.TabIndex = 4;
+            this.comboBoxSozlukler.Size = new System.Drawing.Size(407, 33);
+            this.comboBoxSozlukler.TabIndex = 0;
             this.comboBoxSozlukler.SelectedIndexChanged += new System.EventHandler(this.comboBoxSozlukler_SelectedIndexChanged);
             //
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.comboBoxSozlukler);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox1.Location = new System.Drawing.Point(77, 60);
+            this.groupBox1.Location = new System.Drawing.Point(24, 24);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(473, 99);
-            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sözlük";
             //
@@ -87,7 +87,7 @@
             this.comboBoxSoruSayisi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.comboBoxSoruSayisi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSoruSayisi.FormattingEnabled = true;
-            this.comboBoxSoruSayisi.Location = new System.Drawing.Point(33, 31);
+            this.comboBoxSoruSayisi.Location = new System.Drawing.Point(33, 44);
             this.comboBoxSoruSayisi.Name = "comboBoxSoruSayisi";
             this.comboBoxSoruSayisi.Size = new System.Drawing.Size(150, 33);
             this.comboBoxSoruSayisi.TabIndex = 0;
@@ -96,10 +96,10 @@
             //
             this.groupBox2.Controls.Add(this.comboBoxSoruSayisi);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox2.Location = new System.Drawing.Point(77, 175);
+            this.groupBox2.Location = new System.Drawing.Point(24, 139);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(473, 99);
-            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Soru sayısı";
             //
@@ -107,7 +107,9 @@
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 413);
+            this.AcceptButton = this.btnBaslat;
+            this.CancelButton = this.btnCikis;
+            this.ClientSize = new System.Drawing.Size(521, 315);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCikis);
