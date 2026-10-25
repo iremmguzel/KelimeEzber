@@ -49,7 +49,7 @@ namespace KelimeEzber
         // kullanıcı oturumu bitirmeyi seçerse true döner, Devam et, Esc ve pencereyi kapatma ise oturumu sürdürür
         public static bool BitirmeOnayiAl(IWin32Window sahip, params (string Ad, string Deger)[] satirlar)
         {
-            using (var form = new FormOzet("Oturum henüz bitmedi"))
+            using (var form = new FormOzet("Oturum henüz bitmedi!"))
             {
                 form.SatirlariEkle(satirlar);
                 form.MetinEkle("Oturumu bitirmek istediğine emin misin?");
