@@ -67,5 +67,17 @@ namespace KelimeEzber.Properties
                 resourceCulture = value;
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static global::System.Drawing.Icon UygulamaIkonu
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("UygulamaIkonu", resourceCulture);
+                return ((global::System.Drawing.Icon)(obj));
+            }
+        }
     }
 }

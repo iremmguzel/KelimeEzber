@@ -31,6 +31,7 @@ namespace KelimeEzber
         public FormSoru(EzberOturumu oturum)
         {
             InitializeComponent();
+            Icon = Properties.Resources.UygulamaIkonu;
             this.oturum = oturum;
             secenekButonlari = new[] { btnA, btnB, btnC, btnD };
             gecisZamanlayicisi.Tick += GecisSuresiDoldu;

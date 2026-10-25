@@ -11,6 +11,7 @@ namespace KelimeEzber
         public FormAna()
         {
             InitializeComponent();
+            Icon = Properties.Resources.UygulamaIkonu;
         }
 
         private void FormAna_Load(object sender, EventArgs e)
