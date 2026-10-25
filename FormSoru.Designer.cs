@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnA = new System.Windows.Forms.Button();
-            this.btnB = new System.Windows.Forms.Button();
-            this.btnC = new System.Windows.Forms.Button();
-            this.btnD = new System.Windows.Forms.Button();
+            this.btnA = new KelimeEzber.DuzButon();
+            this.btnB = new KelimeEzber.DuzButon();
+            this.btnC = new KelimeEzber.DuzButon();
+            this.btnD = new KelimeEzber.DuzButon();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblSure = new System.Windows.Forms.Label();
             this.lblSureBaslik = new System.Windows.Forms.Label();
@@ -50,46 +50,70 @@
             // 
             // btnA
             // 
-            this.btnA.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnA.Location = new System.Drawing.Point(109, 349);
+            this.btnA.BackColor = System.Drawing.Color.White;
+            this.btnA.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
+            this.btnA.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(219)))), ((int)(((byte)(234)))));
+            this.btnA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(237)))), ((int)(((byte)(247)))));
+            this.btnA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnA.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btnA.Location = new System.Drawing.Point(24, 312);
             this.btnA.Name = "btnA";
-            this.btnA.Size = new System.Drawing.Size(243, 85);
+            this.btnA.Size = new System.Drawing.Size(280, 85);
             this.btnA.TabIndex = 0;
             this.btnA.Text = "button1";
-            this.btnA.UseVisualStyleBackColor = true;
+            this.btnA.UseVisualStyleBackColor = false;
             this.btnA.Click += new System.EventHandler(this.SecenekTiklandi);
             // 
             // btnB
             // 
-            this.btnB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnB.Location = new System.Drawing.Point(387, 349);
+            this.btnB.BackColor = System.Drawing.Color.White;
+            this.btnB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
+            this.btnB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(219)))), ((int)(((byte)(234)))));
+            this.btnB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(237)))), ((int)(((byte)(247)))));
+            this.btnB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnB.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btnB.Location = new System.Drawing.Point(328, 312);
             this.btnB.Name = "btnB";
-            this.btnB.Size = new System.Drawing.Size(243, 85);
+            this.btnB.Size = new System.Drawing.Size(280, 85);
             this.btnB.TabIndex = 1;
             this.btnB.Text = "button2";
-            this.btnB.UseVisualStyleBackColor = true;
+            this.btnB.UseVisualStyleBackColor = false;
             this.btnB.Click += new System.EventHandler(this.SecenekTiklandi);
             // 
             // btnC
             // 
-            this.btnC.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnC.Location = new System.Drawing.Point(109, 458);
+            this.btnC.BackColor = System.Drawing.Color.White;
+            this.btnC.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
+            this.btnC.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(219)))), ((int)(((byte)(234)))));
+            this.btnC.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(237)))), ((int)(((byte)(247)))));
+            this.btnC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnC.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btnC.Location = new System.Drawing.Point(24, 421);
             this.btnC.Name = "btnC";
-            this.btnC.Size = new System.Drawing.Size(243, 85);
+            this.btnC.Size = new System.Drawing.Size(280, 85);
             this.btnC.TabIndex = 2;
             this.btnC.Text = "button3";
-            this.btnC.UseVisualStyleBackColor = true;
+            this.btnC.UseVisualStyleBackColor = false;
             this.btnC.Click += new System.EventHandler(this.SecenekTiklandi);
             // 
             // btnD
             // 
-            this.btnD.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnD.Location = new System.Drawing.Point(387, 458);
+            this.btnD.BackColor = System.Drawing.Color.White;
+            this.btnD.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(163)))), ((int)(((byte)(204)))));
+            this.btnD.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(219)))), ((int)(((byte)(234)))));
+            this.btnD.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(237)))), ((int)(((byte)(247)))));
+            this.btnD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnD.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btnD.Location = new System.Drawing.Point(328, 421);
             this.btnD.Name = "btnD";
-            this.btnD.Size = new System.Drawing.Size(243, 85);
+            this.btnD.Size = new System.Drawing.Size(280, 85);
             this.btnD.TabIndex = 3;
             this.btnD.Text = "button4";
-            this.btnD.UseVisualStyleBackColor = true;
+            this.btnD.UseVisualStyleBackColor = false;
             this.btnD.Click += new System.EventHandler(this.SecenekTiklandi);
             // 
             // panel1
@@ -100,7 +124,7 @@
             this.panel1.Controls.Add(this.lblPuan);
             this.panel1.Controls.Add(this.lblPuanBaslik);
             this.panel1.Controls.Add(this.lblDurum);
-            this.panel1.Location = new System.Drawing.Point(80, 33);
+            this.panel1.Location = new System.Drawing.Point(24, 24);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(584, 76);
             this.panel1.TabIndex = 4;
@@ -113,7 +137,7 @@
             this.lblSure.Name = "lblSure";
             this.lblSure.Size = new System.Drawing.Size(130, 32);
             this.lblSure.TabIndex = 4;
-            this.lblSure.Text = ": 00:00";
+            this.lblSure.Text = "00:00";
             this.lblSure.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblSureBaslik
@@ -135,7 +159,7 @@
             this.lblPuan.Name = "lblPuan";
             this.lblPuan.Size = new System.Drawing.Size(130, 32);
             this.lblPuan.TabIndex = 2;
-            this.lblPuan.Text = ": 0";
+            this.lblPuan.Text = "0";
             this.lblPuan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblPuanBaslik
@@ -164,7 +188,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(237)))), ((int)(((byte)(247)))));
             this.panel2.Controls.Add(this.lblSoru);
-            this.panel2.Location = new System.Drawing.Point(80, 139);
+            this.panel2.Location = new System.Drawing.Point(24, 130);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(584, 100);
             this.panel2.TabIndex = 5;
@@ -186,7 +210,7 @@
             this.lblGeriBildirim.Controls.Add(this.lblPuanArtisi);
             this.lblGeriBildirim.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblGeriBildirim.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.lblGeriBildirim.Location = new System.Drawing.Point(80, 254);
+            this.lblGeriBildirim.Location = new System.Drawing.Point(24, 246);
             this.lblGeriBildirim.Name = "lblGeriBildirim";
             this.lblGeriBildirim.Size = new System.Drawing.Size(584, 50);
             this.lblGeriBildirim.TabIndex = 6;
@@ -216,7 +240,7 @@
             this.btnDevam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDevam.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnDevam.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btnDevam.Location = new System.Drawing.Point(534, 254);
+            this.btnDevam.Location = new System.Drawing.Point(478, 246);
             this.btnDevam.Name = "btnDevam";
             this.btnDevam.Size = new System.Drawing.Size(130, 50);
             this.btnDevam.TabIndex = 7;
@@ -229,7 +253,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(742, 591);
+            this.ClientSize = new System.Drawing.Size(632, 530);
             this.Controls.Add(this.btnDevam);
             this.Controls.Add(this.lblGeriBildirim);
             this.Controls.Add(this.panel2);
@@ -253,10 +277,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnA;
-        private System.Windows.Forms.Button btnB;
-        private System.Windows.Forms.Button btnC;
-        private System.Windows.Forms.Button btnD;
+        private KelimeEzber.DuzButon btnA;
+        private KelimeEzber.DuzButon btnB;
+        private KelimeEzber.DuzButon btnC;
+        private KelimeEzber.DuzButon btnD;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblPuanBaslik;

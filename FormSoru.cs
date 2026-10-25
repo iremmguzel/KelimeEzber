@@ -43,8 +43,8 @@ namespace KelimeEzber
         private void EkraniGuncelle()
         {
             lblSoru.Text = oturum.AktifKelime.Ingilizce;
-            lblDurum.Text = $"Soru: {oturum.SoruNo}/{oturum.ToplamSoru}";
-            lblPuan.Text = $": {oturum.Puan}";
+            lblDurum.Text = $"Soru {oturum.SoruNo}/{oturum.ToplamSoru}";
+            lblPuan.Text = oturum.Puan.ToString();
             lblGeriBildirim.Visible = false;
             lblGeriBildirim.Width = panel2.Width;
             btnDevam.Visible = false;
@@ -53,9 +53,8 @@ namespace KelimeEzber
             for (int i = 0; i < secenekButonlari.Length; i++)
             {
                 secenekButonlari[i].Text = oturum.Secenekler[i];
-                // kırmızı yapılan butonlar eski görünümüne döndürülür
-                secenekButonlari[i].BackColor = SystemColors.Control;
-                secenekButonlari[i].UseVisualStyleBackColor = true;
+                // kırmızı ya da yeşil yapılan butonlar eski görünümüne döndürülür
+                secenekButonlari[i].BackColor = Color.White;
                 secenekButonlari[i].Enabled = true;
             }
 
@@ -75,17 +74,18 @@ namespace KelimeEzber
         private void PuanVeSureyiHizala()
         {
             const int sagBosluk = 10;
+            const int baslikDegerArasi = 8;
 
             int baslikGenisligi = Math.Max(lblPuanBaslik.PreferredWidth, lblSureBaslik.PreferredWidth);
 
             // değer sütunu en uzun süre metnine göre ayarlanır
             string sureMetni = lblSure.Text;
-            lblSure.Text = ": 0:00:00";
+            lblSure.Text = "0:00:00";
             int degerGenisligi = lblSure.PreferredWidth;
             lblSure.Text = sureMetni;
 
             int degerX = panel1.ClientSize.Width - sagBosluk - degerGenisligi;
-            int baslikX = degerX - baslikGenisligi;
+            int baslikX = degerX - baslikDegerArasi - baslikGenisligi;
 
             lblPuanBaslik.SetBounds(baslikX, lblPuanBaslik.Top, baslikGenisligi, lblPuanBaslik.Height);
             lblSureBaslik.SetBounds(baslikX, lblSureBaslik.Top, baslikGenisligi, lblSureBaslik.Height);
@@ -129,7 +129,7 @@ namespace KelimeEzber
 
         private void SureyiGoster()
         {
-            lblSure.Text = $": {SureMetni()}";
+            lblSure.Text = SureMetni();
         }
 
         private string SureMetni()
@@ -214,7 +214,7 @@ namespace KelimeEzber
             lblGeriBildirim.BackColor = kutuRengi;
             lblGeriBildirim.Visible = true;
             // puan güncellenir
-            lblPuan.Text = $": {oturum.Puan}";
+            lblPuan.Text = oturum.Puan.ToString();
             foreach (var b in secenekButonlari)
                 b.Enabled = false;
             ActiveControl = null;
