@@ -2,20 +2,35 @@
 
 C# ve Windows Forms ile yazılmış, çoktan seçmeli sorularla İngilizce kelime ezberlemeye yarayan bir masaüstü uygulaması.
 
-Sakarya Üniversitesi Bilgisayar Mühendisliği, Nesneye Dayalı Programlama dersi (2024-2025 Bahar) ödevi olarak geliştirdim. Teslimden sonra kenar durumlarda çıkan hataları düzelttim ve oyun mantığını formlardan ayırdım.
+Sakarya Üniversitesi Bilgisayar Mühendisliği, Nesneye Dayalı Programlama dersi (2024-2025 Bahar) ödevi olarak geliştirdim. Teslimden sonra kenar durumlarda çıkan hataları düzelttim, oyun mantığını formlardan ayırdım; soru sayısı seçimi ve süre sayacı ekleyip arayüzü yeniden tasarladım.
 
-<!-- Ekran görüntülerini docs/ klasörüne ekleyip aşağıdaki satırları açabilirsin -->
-<!-- ![Ana form](docs/ana-form.png) -->
-<!-- ![Soru ekranı](docs/soru-ekrani.png) -->
+<table>
+  <tr>
+    <td align="center"><img src="docs/ana-ekran.png" alt="Ana ekran" width="295"><br>Sözlük ve soru sayısı seçimi</td>
+    <td align="center"><img src="docs/soru-ekrani.png" alt="Soru ekranı" width="357"><br>Soru ekranı</td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/dogru-cevap.png" alt="İlk denemede doğru cevap" width="357"><br>İlk denemede doğru cevap</td>
+    <td align="center"><img src="docs/kelime-not-al.png" alt="Bilinemeyen kelimede doğru cevabın gösterilmesi" width="357"><br>Bilinemeyen kelimede doğru cevap gösterilir</td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/oturum-bitmedi.png" alt="Oturumu bitirme onayı" width="283"><br>Oturum yarıda kapatılırken onay</td>
+    <td align="center"><img src="docs/oturum-bitti.png" alt="Oturum sonu" width="283"><br>Oturum sonu</td>
+  </tr>
+</table>
 
 ## Özellikler
 
 - Program klasöründeki tüm `.txt` sözlük dosyalarını otomatik olarak listeler
-- Her oturumda kelimeler rastgele sırayla sorulur
-- Her soruda 1 doğru ve 3 rastgele yanlış şık gösterilir
-- Yanlış seçilen şık kırmızıya döner, doğru cevap bulunana kadar sonraki soruya geçilmez
+- Her oturumda sorulacak kelime sayısı seçilebilir: 10, 20, 30 ya da tümü
+- Kelimeler her oturumda rastgele sırayla sorulur, yanlış şıklar sözlüğün tamamından seçilir
+- Her soruda 1 doğru ve 3 yanlış şık gösterilir
+- Yanlış seçilen şık kırmızıya döner ve tekrar seçilemez; tüm yanlışlar elenirse doğru cevap gösterilir ve Devam butonuyla sonraki kelimeye geçilir
 - Sadece ilk denemede doğru bilinen kelimeler 10 puan kazandırır
-- Oturum sonunda ilk denemede bilinen kelime sayısı ve toplam puan gösterilir
+- Süre sayacı sadece soru cevap beklerken işler, pencere arka plana alınınca durur
+- Oturum yarıda kapatılmak istenirse o ana kadarki sonuçlarla birlikte onay istenir
+- Oturum sonunda ilk denemede bilinen kelime sayısı, toplam puan ve süre gösterilir
+- Klavyeyle kullanılabilir: ana ekranda Enter oturumu başlatır, Esc programı kapatır
 - Boş, hatalı ya da çok küçük sözlük dosyalarında uyarı verir
 
 ## Kurulum
@@ -52,15 +67,13 @@ Yeni bir sözlük eklemek için `.txt` dosyasını `Sozlukler/` klasörüne koyu
 | Dosya | Görevi |
 |---|---|
 | `Kelime.cs` | Kelime ve anlamını tutan model sınıfı |
+| `Sozluk.cs` | Sözlüğün listede görünen adını ve dosya yolunu tutar |
 | `SozlukYonetici.cs` | Sözlük dosyalarını listeleme ve okuma |
-| `EzberOturumu.cs` | Soru sırası, şık üretimi ve puan hesabı |
-| `FormAna.cs` | Sözlük seçme ve yükleme ekranı |
+| `EzberOturumu.cs` | Soru seçimi ve sırası, şık üretimi ve puan hesabı |
+| `SoruSayisiSecenegi.cs` | Sözlüğün kelime sayısına göre soru sayısı seçeneklerini üretir |
+| `FormAna.cs` | Sözlük ve soru sayısı seçme ekranı |
 | `FormSoru.cs` | Çoktan seçmeli soru ekranı |
+| `FormOzet.cs` | Oturum sonu ve oturumu bitirme onayı pencereleri |
+| `DuzButon.cs` | Ana ekran butonlarında kullanılan düz stilli buton |
 
-Oturum mantığı `EzberOturumu` sınıfında toplandığı için formlar sadece ekranı güncelliyor. Bu sayede mantık arayüzden bağımsız olarak test edilebilir.
-
-## Geliştirilebilecekler
-
-- Yanlış bilinen kelimelerin oturum sonunda tekrar sorulması
-- Türkçeden İngilizceye soru modu
-- Oturum geçmişinin kaydedilmesi
+Oturum mantığı `EzberOturumu` sınıfında toplandığı için formlar sadece ekranı güncelliyor. Bu sayede mantık arayüzden bağımsız olarak değiştirilebilir ve test edilebilir.
