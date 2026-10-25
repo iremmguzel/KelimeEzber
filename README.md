@@ -4,34 +4,63 @@ C# ve Windows Forms ile yazılmış, çoktan seçmeli sorularla İngilizce kelim
 
 Sakarya Üniversitesi Bilgisayar Mühendisliği, Nesneye Dayalı Programlama dersi (2024-2025 Bahar) ödevi olarak geliştirdim. Teslimden sonra kenar durumlarda çıkan hataları düzelttim, oyun mantığını formlardan ayırdım; soru sayısı seçimi ve süre sayacı ekleyip arayüzü yeniden tasarladım.
 
-<table>
-  <tr>
-    <td align="center"><img src="docs/ana-ekran.png" alt="Ana ekran" width="295"><br>Sözlük ve soru sayısı seçimi</td>
-    <td align="center"><img src="docs/soru-ekrani.png" alt="Soru ekranı" width="357"><br>Soru ekranı</td>
-  </tr>
-  <tr>
-    <td align="center"><img src="docs/dogru-cevap.png" alt="İlk denemede doğru cevap" width="357"><br>İlk denemede doğru cevap</td>
-    <td align="center"><img src="docs/kelime-not-al.png" alt="Bilinemeyen kelimede doğru cevabın gösterilmesi" width="357"><br>Bilinemeyen kelimede doğru cevap gösterilir</td>
-  </tr>
-  <tr>
-    <td align="center"><img src="docs/oturum-bitmedi.png" alt="Oturumu bitirme onayı" width="283"><br>Oturum yarıda kapatılırken onay</td>
-    <td align="center"><img src="docs/oturum-bitti.png" alt="Oturum sonu" width="283"><br>Oturum sonu</td>
-  </tr>
-</table>
+## Nasıl çalışır
 
-## Özellikler
+### 1. Sözlük ve soru sayısı seçimi
 
-- Program klasöründeki tüm `.txt` sözlük dosyalarını otomatik olarak listeler
-- Her oturumda sorulacak kelime sayısı seçilebilir: 10, 20, 30 ya da tümü
-- Kelimeler her oturumda rastgele sırayla sorulur, yanlış şıklar sözlüğün tamamından seçilir
-- Her soruda 1 doğru ve 3 yanlış şık gösterilir
-- Yanlış seçilen şık kırmızıya döner ve tekrar seçilemez; tüm yanlışlar elenirse doğru cevap gösterilir ve Devam butonuyla sonraki kelimeye geçilir
-- Sadece ilk denemede doğru bilinen kelimeler 10 puan kazandırır
-- Süre sayacı sadece soru cevap beklerken işler, pencere arka plana alınınca durur
-- Oturum yarıda kapatılmak istenirse o ana kadarki sonuçlarla birlikte onay istenir
-- Oturum sonunda ilk denemede bilinen kelime sayısı, toplam puan ve süre gösterilir
-- Klavyeyle kullanılabilir: ana ekranda Enter oturumu başlatır, Esc programı kapatır
-- Boş, hatalı ya da çok küçük sözlük dosyalarında uyarı verir
+<img src="docs/ana-ekran.png" alt="Sözlük ve soru sayısı seçimi" width="280" align="left">
+
+Program açıldığında klasördeki tüm `.txt` sözlük dosyaları listelenir. Sözlük seçildikten sonra bu oturumda kaç kelime sorulacağı seçilir: 10, 20, 30 ya da tümü. Sözlükteki kelime sayısını aşan seçenekler gösterilmez.
+
+Enter oturumu başlatır, Esc programı kapatır. Boş, hatalı ya da çok küçük sözlük dosyalarında uyarı verilir.
+
+<br clear="left">
+
+### 2. Soru ekranı
+
+<img src="docs/soru-ekrani.png" alt="Soru ekranı" width="280" align="left">
+
+Kelimeler her oturumda rastgele sırayla sorulur. Her soruda 1 doğru ve 3 yanlış şık gösterilir, yanlış şıklar sözlüğün tamamından seçilir.
+
+Üst şeritte soru sırası, puan ve süre yer alır. Süre sadece soru cevap beklerken işler, pencere arka plana alınınca durur.
+
+<br clear="left">
+
+### 3. İlk denemede doğru cevap
+
+<img src="docs/dogru-cevap.png" alt="İlk denemede doğru cevap" width="280" align="left">
+
+İlk denemede doğru bilinen kelime 10 puan kazandırır. Doğru şık yeşile döner, kazanılan puan gösterilir ve kısa bir süre sonra sonraki soruya geçilir.
+
+<br clear="left">
+
+### 4. Bilinemeyen kelime
+
+<img src="docs/kelime-not-al.png" alt="Bilinemeyen kelimede doğru cevabın gösterilmesi" width="280" align="left">
+
+Yanlış seçilen şık kırmızıya döner ve tekrar seçilemez. Tüm yanlış şıklar elenirse doğru cevap gösterilir.
+
+Bir kez yanlış cevaplanan kelime puan kazandırmaz. Kullanıcı doğru cevabı inceleyebilsin diye otomatik geçilmez, sonraki kelimeye Devam butonuyla geçilir.
+
+<br clear="left">
+
+### 5. Oturumu yarıda bırakma
+
+<img src="docs/oturum-bitmedi.png" alt="Oturumu bitirme onayı" width="280" align="left">
+
+Oturum bitmeden pencere kapatılmak istenirse o ana kadarki sonuçlarla birlikte onay istenir.
+
+Enter ve Esc oturumu sürdürür, oturum yalnızca "Oturumu bitir" ile sonlanır.
+
+<br clear="left">
+
+### 6. Oturum sonu
+
+<img src="docs/oturum-bitti.png" alt="Oturum sonu" width="280" align="left">
+
+Tüm sorular cevaplandığında ilk denemede bilinen kelime sayısı, toplam puan ve süre gösterilir.
+
+<br clear="left">
 
 ## Kurulum
 
@@ -60,7 +89,12 @@ Dosyanın ilk satırına `#` ile başlayan bir başlık yazılırsa listede söz
 algorithm	algoritma
 ```
 
-Yeni bir sözlük eklemek için `.txt` dosyasını `Sozlukler/` klasörüne koyup projeyi yeniden derlemek yeterli. Dosya adları küçük harf, Türkçe karaktersiz ve boşluksuz verilmeli (ör. `yazilim_terimleri.txt`). Başlık satırı yoksa ad dosya adından üretilir (`temel_kelimeler` → `Temel Kelimeler`). Soru oluşturabilmek için sözlükte en az 4 farklı anlam bulunmalıdır.
+Yeni sözlük eklerken:
+
+- `.txt` dosyasını `Sozlukler/` klasörüne koyup projeyi yeniden derlemek yeterlidir.
+- Dosya adları küçük harf, Türkçe karaktersiz ve boşluksuz verilmelidir (ör. `yazilim_terimleri.txt`).
+- Başlık satırı yoksa listede görünen ad dosya adından üretilir (`temel_kelimeler` → `Temel Kelimeler`).
+- Soru oluşturabilmek için sözlükte en az 4 farklı anlam bulunmalıdır.
 
 ## Proje yapısı
 
@@ -74,6 +108,6 @@ Yeni bir sözlük eklemek için `.txt` dosyasını `Sozlukler/` klasörüne koyu
 | `FormAna.cs` | Sözlük ve soru sayısı seçme ekranı |
 | `FormSoru.cs` | Çoktan seçmeli soru ekranı |
 | `FormOzet.cs` | Oturum sonu ve oturumu bitirme onayı pencereleri |
-| `DuzButon.cs` | Ana ekran butonlarında kullanılan düz stilli buton |
+| `DuzButon.cs` | Uygulamadaki butonlarda kullanılan düz stilli buton |
 
 Oturum mantığı `EzberOturumu` sınıfında toplandığı için formlar sadece ekranı güncelliyor. Bu sayede mantık arayüzden bağımsız olarak değiştirilebilir ve test edilebilir.
